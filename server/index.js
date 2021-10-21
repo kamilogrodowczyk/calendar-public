@@ -19,13 +19,13 @@ app.use(companyRouter);
 app.use(eventRouter);
 app.use(userRouter);
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '..', 'build')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('calendar/build'));
 
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-//   });
-// }
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'calendar', 'build', 'index.html'));
+  });
+}
 
 app.get('/', (req, res) => {
   res.send('<h2>This is from index.js file</h2>');
