@@ -20,10 +20,14 @@ app.use(eventRouter);
 app.use(userRouter);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("calendar/build"));
+  // app.use(express.static("calendar/build"));
+  app.use(express.static(path.join(__dirname, "..", "calendar", "build")));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "calendar", "build", "index.html"));
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "calendar", "build", "index.html"));
+  // });
+  app.use((req, res, next) => {
+    res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
   });
 }
 
