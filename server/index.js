@@ -26,8 +26,8 @@ if (process.env.NODE_ENV === "production") {
   // app.get("*", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, "calendar", "build", "index.html"));
   // });
-  app.use((req, res, next) => {
-    res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "..", "calendar", "build", "index.html"));
   });
 }
 
@@ -35,11 +35,13 @@ app.get("/", (req, res) => {
   res.send("<h2>This is from index.js file</h2>");
 });
 
-app.use((req, res, next) => {
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
+// });
+
+app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
 });
-
-console.log(__dirname);
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
