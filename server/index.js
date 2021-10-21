@@ -35,15 +35,15 @@ app.get("/", (req, res) => {
   res.send("<h2>This is from index.js file</h2>");
 });
 
-console.log("Database_URL", process.env.DATABASE_URL);
+console.log("Database_URL", process.env.MONGODB_URI);
 
-// app.use((req, res, next) => {
-//   res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
-// });
-
-app.get('/*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, "..", "calendar", "build", "index.html"));
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
 });
+
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.resolve(__dirname, "..", "calendar", "build", "index.html"));
+// });
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
