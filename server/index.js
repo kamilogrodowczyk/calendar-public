@@ -42,7 +42,7 @@ console.log("Database_URL", process.env.DATABASE_URL);
 // });
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "..", "calendar", "build", "index.html"));
 });
 
 app.listen(PORT, () => {
