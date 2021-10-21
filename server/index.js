@@ -35,6 +35,8 @@ app.get("/", (req, res) => {
   res.send("<h2>This is from index.js file</h2>");
 });
 
+console.log("Database_URL", process.env.DATABASE_URL);
+
 // app.use((req, res, next) => {
 //   res.sendFile(path.join(__dirname, "..", "calendar", "build", "index.html"));
 // });
