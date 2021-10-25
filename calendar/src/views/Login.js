@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Input, Button, DisabledInput } from 'components/organisms/Modal/InputModal.styles';
 import axios from 'axios';
@@ -14,10 +14,6 @@ import { ErrorParagraph } from 'components/atoms/Paragraph.styles';
 const LoginInput = styled(Input)`
   width: 80%;
   border: solid 1px rgba(255, 255, 255, 1);
-`;
-
-const LinkedElement = styled(Link)`
-  color: black;
 `;
 
 const Login = () => {
@@ -86,7 +82,6 @@ const Login = () => {
           {errors.password && <ErrorParagraph isVisible>{errors.password.message}</ErrorParagraph>}
         </InputErrorWrapper>
         <Button isBlack>Zaloguj się</Button>
-        {client === 'admin' ? <LinkedElement to={`/admin/register`}>Zarejestruj się</LinkedElement> : null}
       </FormWrapper>
     </MainWrapper>
   );

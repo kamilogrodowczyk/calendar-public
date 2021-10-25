@@ -34,7 +34,6 @@ const Register = () => {
 
   const [isPending, setPendingState] = useState(false);
   const { company } = useContext(CompanyContext);
-  const localStorageToken = localStorage.getItem('auth-token');
 
   const onSubmit = async (data) => {
     setPendingState(true);
@@ -57,6 +56,9 @@ const Register = () => {
         <select {...register('company')}>
           <option key="admin" value="admin">
             admin
+          </option>
+          <option key="pracownik" value="pracownik">
+            pracownik
           </option>
           {company?.map((element) => (
             <option key={element.company} value={element.company.toLowerCase().replace(/\s/g, '')}>
@@ -119,11 +121,7 @@ const Register = () => {
         </InputErrorWrapper>
         {!isPending && <Button isBlack>Zarejestruj</Button>}
         {isPending && <Button disabled>Rejestrowanie</Button>}
-        {localStorageToken ? (
-          <LinkedElement to={`/admin/dashboard`}>Wróć do dashboardu</LinkedElement>
-        ) : (
-          <LinkedElement to={`/admin/login`}>Wróć do logowania</LinkedElement>
-        )}
+        <LinkedElement to={`/admin/dashboard`}>Wróć do dashboardu</LinkedElement>
       </RegisterWrapper>
     </MainWrapper>
   );

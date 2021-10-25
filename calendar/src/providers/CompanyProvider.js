@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-// import { useLocalStorage } from 'hooks/useLocalStorage';
 import { useCompany } from 'hooks/useCompany';
 import axios from 'axios';
 import { BASE_API_URL } from 'data/baseUrl';
 import { CompanyProviderShape } from 'types';
 import { initialCompanyContext } from 'data/initialStates';
 import { useAxios } from 'hooks/useAxios';
-import { useCallback } from 'react/cjs/react.development';
 
 export const CompanyContext = React.createContext(initialCompanyContext);
 

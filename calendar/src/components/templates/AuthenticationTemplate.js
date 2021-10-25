@@ -11,7 +11,7 @@ const AuthenticationWrapper = ({ children }) => {
   const localStorageToken = localStorage.getItem('auth-token');
   let activeClient = localStorage.getItem('client');
 
-  return correctEndpoint || client === 'admin' ? (
+  return correctEndpoint || client === 'admin' || client === 'pracownik' ? (
     <>
       {localStorageToken ? (
         <>

@@ -60,6 +60,11 @@ export const Paragraph = styled(DefaultParagraph)`
   }
 `;
 
+export const EmptyPlace = styled.div`
+  width: 100%;
+  height: 20px;
+`;
+
 export const LeftbarButton = styled(Button)`
   position: absolute;
   left: -35px;

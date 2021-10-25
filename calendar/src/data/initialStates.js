@@ -49,7 +49,7 @@ export const editedInput = {
   title: '',
   time: '',
   description: '',
-  comment: '',
+  comments: '',
 };
 
 export const initialConstant = {

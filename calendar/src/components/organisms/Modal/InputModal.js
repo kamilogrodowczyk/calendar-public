@@ -112,7 +112,7 @@ const InputModal = ({ day, isShowingInputModal, isShowingEditInputModal, toggleE
         <Input type="time" placeholder="Czas" {...register('time')} />
         {!isShowingEditInputModal ? <Input {...register('image')} type="file" accept="image/png, image/jpeg" onChange={dropImage} isWhite /> : null}
         <Textarea as="textarea" {...register('description')} placeholder="Opis" />
-        <Textarea as="textarea" {...register('comment')} placeholder="Uwagi" />
+        <Textarea as="textarea" {...register('comments')} placeholder="Uwagi" />
         <Button data-testid="submit-button" type="submit">
           {isShowingEditInputModal ? 'Zmień' : 'Dodaj'}
         </Button>

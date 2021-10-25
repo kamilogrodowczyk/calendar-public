@@ -43,7 +43,7 @@ router.put('/event/:formattedDateToSort', async (req, res) => {
   try {
     const eventElements = await Event.updateOne(
       { formattedDateToSort: formattedDateToSort },
-      { $set: { title: req.body.title, time: req.body.time, description: req.body.description, comment: req.body.comment } }
+      { $set: { title: req.body.title, time: req.body.time, description: req.body.description, comments: req.body.comments } }
     );
     res.json(eventElements);
   } catch (error) {

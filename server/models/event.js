@@ -14,7 +14,7 @@ const eventSchema = mongoose.Schema({
     type: String,
     trim: true,
   },
-  comment: {
+  comments: {
     type: String,
     trim: true,
   },
