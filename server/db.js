@@ -1,14 +1,17 @@
 const mongoose = require("mongoose");
+const mongodbVariable = process.env.MONGODB_URI;
+
+const config = {
+  useNewUrlParser: true,
+  ...(mongodbVariable === undefined && { useCreateIndex: true }),
+  useUnifiedTopology: true,
+};
 
 mongoose
   .connect(
-    process.env.MONGODB_URI ||
+    mongodbVariable ||
       "mongodb+srv://calendar-public:calendar-public@cluster-public.9wnvc.mongodb.net/calendar-public",
-    {
-      useNewUrlParser: true,
-      ...(!MONGODB_URI && { useCreateIndex: true }),
-      useUnifiedTopology: true,
-    },
+    config,
   )
-  .then(() => console.log("MongoDB Connected..."))
+  .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(err));
