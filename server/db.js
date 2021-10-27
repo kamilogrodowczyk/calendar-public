@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      "mongodb+srv://calendar:calendar@cluster0.a85ct.mongodb.net/calendar",
+      "mongodb+srv://calendar-public:calendar-public@cluster-public.9wnvc.mongodb.net/calendar-public",
     {
       useNewUrlParser: true,
       useCreateIndex: true,
