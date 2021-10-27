@@ -6,7 +6,7 @@ mongoose
       "mongodb+srv://calendar-public:calendar-public@cluster-public.9wnvc.mongodb.net/calendar-public",
     {
       useNewUrlParser: true,
-      useCreateIndex: true,
+      ...(!MONGODB_URI && { useCreateIndex: true }),
       useUnifiedTopology: true,
     },
   )
