@@ -1,6 +1,7 @@
 import { Title } from 'components/atoms/Heading.styles';
 import { Paragraph } from 'components/atoms/Paragraph.styles';
 import React from 'react';
+import { Redirect, useParams } from 'react-router';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -27,12 +28,14 @@ const ErrorParagraph = styled(Paragraph)`
 `;
 
 const ErrorPage = () => {
+  const { client } = useParams();
   return (
     <Wrapper>
       <ErrorTitle isWhite>
         OOPS!
         <ErrorParagraph isWhite>Niestety nie udało się znaleźć tej strony</ErrorParagraph>
       </ErrorTitle>
+      {client === ':client' ? <Redirect to="/admin/login" /> : <Redirect to={`/${client}/login`} />}
     </Wrapper>
   );
 };
