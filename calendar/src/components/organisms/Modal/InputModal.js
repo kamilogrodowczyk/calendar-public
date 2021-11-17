@@ -6,7 +6,6 @@ import { useConstantInfo } from 'hooks/useConstantInfo';
 import { initialConstant, editedInput } from 'data/initialStates';
 import { CalendarContext } from 'providers/CalendarProvider';
 import { useForm } from 'react-hook-form';
-import { useImage } from 'hooks/useImage';
 import { CompanyContext } from 'providers/CompanyProvider';
 import axios from 'axios';
 import { BASE_API_URL } from 'data/baseUrl';
@@ -24,7 +23,6 @@ const InputModal = ({ day, isShowingInputModal, isShowingEditInputModal, toggleE
   const { createEvent } = useAxios();
   const { selectedCompany, activeUser } = useContext(CompanyContext);
   const { constantInfo, handleShowConstantInfo, clearConstant } = useConstantInfo(initialConstant);
-  const { image, handleSetImage } = useImage();
   const {
     register,
     handleSubmit,
@@ -52,7 +50,6 @@ const InputModal = ({ day, isShowingInputModal, isShowingEditInputModal, toggleE
   }, [isShowingInputModal || isShowingEditInputModal]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onSubmit = async (data) => {
-    data.image = image;
     if (!data.title) return;
     if (!isShowingEditInputModal) {
       let merged = { ...data, ...constantInfo };
@@ -73,10 +70,6 @@ const InputModal = ({ day, isShowingInputModal, isShowingEditInputModal, toggleE
     reset();
     clearConstant();
     toggleInputModal();
-  };
-
-  const dropImage = (e) => {
-    handleSetImage(e.target.files[0]);
   };
 
   const toogleInputModals = () => {
@@ -110,7 +103,6 @@ const InputModal = ({ day, isShowingInputModal, isShowingEditInputModal, toggleE
           )}
         </InputWrapper>
         <Input type="time" placeholder="Czas" {...register('time')} />
-        {!isShowingEditInputModal ? <Input {...register('image')} type="file" accept="image/png, image/jpeg" onChange={dropImage} isWhite /> : null}
         <Textarea as="textarea" {...register('description')} placeholder="Opis" />
         <Textarea as="textarea" {...register('comments')} placeholder="Uwagi" />
         <Button data-testid="submit-button" type="submit">

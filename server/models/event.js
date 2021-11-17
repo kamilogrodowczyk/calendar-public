@@ -42,10 +42,7 @@ const eventSchema = mongoose.Schema({
     type: String,
     trim: true,
   },
-  image: {
-    data: Buffer,
-    type: String,
-  },
+  image: String,
   formattedDateToSort: {
     type: String,
     trim: true,
