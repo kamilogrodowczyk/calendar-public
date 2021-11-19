@@ -4,6 +4,19 @@
 My app was designed by Socialnet which is used not just by them but also by their clients and employees. 
 The app is divided on three routes - admin, pracownik (ang. employee) and client (here: company).
 
+[Admin Website](https://calendar-app-public.herokuapp.com/admin/login)
+
+[Employee Website](https://calendar-app-public.herokuapp.com/pracownik/login)
+
+[Company - example](https://calendar-app-public.herokuapp.com/volkswagen/login)
+
+Credentials
+
+Credentials | Admin | Employee | Volkswagen
+--- | --- | --- | ---
+Email | admin@admin.pl | employee@employee.pl | volkswagen@volkswagen.pl
+Password | admin1 | employee1 | volkswagen1
+
 Admin rights:
 - can add new company,
 - can add new user in registration form,
