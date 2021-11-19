@@ -81,14 +81,14 @@ const Leftbar = () => {
           {company && !filteredClients ? (
             <>
               <div>
-                {company.map((client, index) => (
-                  <CompanyWrapper key={`${client._id}_${index}`} client={client}>
+                {company.map((company, index) => (
+                  <CompanyWrapper key={`${company._id}_${index}`} company={company}>
                     <Paragraph onClick={changeClient}>
-                      {client.company}
-                      {client === 'pracownik' ? (
+                      {company.company}
+                      {client === 'admin' ? (
                         <svg
                           data-testid="remove-company"
-                          onClick={() => removeClient(client.company)}
+                          onClick={() => removeClient(company.company)}
                           height="20"
                           viewBox="1 1 512 512"
                           width="20"
